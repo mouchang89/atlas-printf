@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			print = specifier(format, ap, print);
-			format++
+			format++;
 		}
 		else
 		{

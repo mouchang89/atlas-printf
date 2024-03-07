@@ -14,7 +14,7 @@ int specifier(const char *format, va_list ap, int print)
 	{
 		case 'c':
 			_putchar(va_arg(ap, int));
-			print++
+			print++;
 			break;
 		case 's':
 			print = printf_string(ap, print);
