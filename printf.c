@@ -8,10 +8,29 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int print = 0;
 
-	va_list list;
+	va_list ap;
 
-	va_start(args, format);
+	va_start(ap, format);
+
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			print = specifier(format, ap, print);
+			format++
+		}
+		else
+		{
+			_putchar(*format);
+			print++;
+			format++;
+		}
+	}
+	va_end(ap);
+	return (print);
+}
 
 
