@@ -12,7 +12,7 @@ int puts(char *c)
 
 	if (c)
 	{
-		for (count = 0, c[count] != '\0', count++)
+		for (count = 0; c[count] != '\0'; count++)
 		{
 			_putchar(c[count]);
 		}	
