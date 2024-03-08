@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * puts - print string
+ * _puts - print string
  * @c: string
  *
  * Return: number of byte
  */
-int puts(char *c)
+int _puts(char *str)
 {
 	int count = 0;
 
-	if (c)
+	if (str)
 	{
-		for (count = 0; c[count] != '\0'; count++)
+		for (count = 0; str[count] != '\0'; count++)
 		{
-			_putchar(c[count]);
+			_putchar(str[count]);
 		}	
 	}
 	return (count);
