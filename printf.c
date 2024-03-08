@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			_putchar(va_arg(ap, int));
 			i++;
 		}
-		else if (format[i + 1] == 's' && format[i + 1] != '\0')
+		else if (format[i + 1] == 's')
 		{
 			str_count = puts(va_arg(ap, char *));
 			i++;
