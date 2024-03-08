@@ -1,0 +1,36 @@
+.TH PRINTF 1 printf\-0.1
+.SH NAME
+printf \- print formatted text to the standard output stream
+.SH SYNOPSIS
+.B printf
+.RB [ \-%c
+.IR single character ]
+.RB [ \-%s
+.IR string of characters ]
+.RB [ \-%%
+.IR % sign ]
+.RB [ \-%d
+.IR integer ]
+.RB [ \-%i
+.IR unsigned integer ]
+.P
+.BR printf "..."
+.SH DESCRIPTION
+.B printf
+is a format specifications, beginning with a percent sign (%) that determines the output format for any argument-list following the format-string
+.SH OPTIONS
+.TP
+.B \-%c
+printf to print a single character
+.TP
+.B \-%s
+printf to print a string of characters
+.TP
+.B \-%%
+printf to print a % sign
+.TP
+.B \-%d
+printf to print an integer
+.TP
+.B \-%i
+printf to print an unsigned integer
