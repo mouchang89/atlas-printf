@@ -1,6 +1,40 @@
 #include "main.h"
 
 /**
+ * print - 
+ * @ap: arguments
+ * @format: pointer to string
+ *
+ * Return: Always 0.
+ */
+int print_format(va_list ap, char *format)
+{
+	switch (format)
+	{
+		case 'c':
+		{
+			return ((print_char(ap, format));
+		}
+		case 's':
+		{
+			return ((print_string(ap, format));
+		}
+		case '%':
+		{
+			return ((print_percent(ap, format));
+		}
+		case 'd':
+		{
+			return ((print_integer(ap, format));
+		}
+		case 'i':
+		{
+			return ((print_integer(ap, format));
+		}
+	}
+	return (0);
+}
+/**
  * _printf - produces output according to a format
  * @format: pointer to string
  *
@@ -8,7 +42,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int print = 0;
+	int print_format = 0;
 
 	va_list ap;
 
@@ -19,18 +53,18 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			print += va_arg (ap, format);
+			print_format += va_arg (ap, *format);
 			format++;
 		}
 		else
 		{
 			_putchar(*format);
-			print++;
+			print_format++;
 			format++;
 		}
 	}
 	va_end(ap);
-	return (print);
+	return (print_format);
 }
 
 
