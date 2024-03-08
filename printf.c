@@ -1,70 +1,59 @@
 #include "main.h"
 
 /**
- * print - 
- * @ap: arguments
- * @format: pointer to string
+ * _printf - print to standard output from formatted text
+ * @format: character string containing specifiers
  *
- * Return: Always 0.
- */
-int print_format(va_list ap, char *format)
-{
-	switch (format)
-	{
-		case 'c':
-		{
-			return ((print_char(ap, format));
-		}
-		case 's':
-		{
-			return ((print_string(ap, format));
-		}
-		case '%':
-		{
-			return ((print_percent(ap, format));
-		}
-		case 'd':
-		{
-			return ((print_integer(ap, format));
-		}
-		case 'i':
-		{
-			return ((print_integer(ap, format));
-		}
-	}
-	return (0);
-}
-/**
- * _printf - produces output according to a format
- * @format: pointer to string
- *
- * Return: number of characters printed
+ * Return: number of bytes printed
  */
 int _printf(const char *format, ...)
 {
-	int print_format = 0;
+	unsigned int i, str_count, count = 0;
 
 	va_list ap;
 
+	if (!format || (format[0] == '%' && format[1] == '\0'))
+	{
+		return (-1);
+	}
+
 	va_start(ap, format);
 
-	while (*format != '\0')
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			format++;
-			print_format += va_arg (ap, *format);
-			format++;
+			_putchar(format[i]);
 		}
-		else
+		else if (format[i + 1] == 'c')
 		{
-			_putchar(*format);
-			print_format++;
-			format++;
+			_putchar(va_arg(ap, int))
+			i++;
 		}
+		else if (format[i + 1] == 's')
+		{
+			str_count = puts(va_arg(ap, char *));
+			i++;
+			count += (str_count - 1);
+		}
+		else if (format[i + 1] == '%')
+		{
+			_putchar('%');
+		}
+		else if (format[i + 1] == 'd')
+		{
+			_putchar(va_arg(ap, int));
+			i++;
+		}
+		else if (format[i + 1] == 'i')
+		{
+			_putchar(va_arg(ap, int));
+			i++;
+		}
+		count++;
 	}
 	va_end(ap);
-	return (print_format);
+	return (count);
 }
 
 
