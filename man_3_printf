@@ -34,3 +34,7 @@ printf to print an integer
 .TP
 .B \-%i
 printf to print an unsigned integer
+.SH AUTHOR
+Mou Chang
+.SH COPYRIGHT
+.B GNU printf copyright
