@@ -32,9 +32,9 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i + 1] == 's')
 		{
-			str_count = puts(va_arg(ap, char *));
+			str_count = puts(va_arg(ap, char *);
 			i++;
-			count += (str_count - 1);
+			count += (str_count -- 1);
 		}
 		else if (format[i + 1] == '%')
 		{
