@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			print = specifier(format, ap, print);
+			print += va_arg (ap, print);
 			format++;
 		}
 		else
